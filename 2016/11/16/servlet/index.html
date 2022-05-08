@@ -1,0 +1,236 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,inital-scale=1,user-scalable=no">
+  <title>Servlet学习 [ Hexo ]</title>
+  <!-- bootstrapcss文件 -->
+ <!--  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+<!--   
+<link rel="stylesheet" href="/liuyongqw/liuyongqw.gitub.io.git/css/zhl.css">
+
+ -->
+  
+    <!-- stylesheets list from config.yml -->
+    
+      <link rel="stylesheet" href="/note.github.io/css/fork-awesome.min.css">
+    
+      <link rel="stylesheet" href="/note.github.io/css/zhl.css">
+    
+  
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+  <div id="wrap" class="col-md-12">
+    <div id="header">
+	<div id="header-left">
+	<h1 id="header-title"> 
+	<a href="/liuyongqw/liuyongqw.gitub.io.git/">
+		Hexo
+	</a>
+	</h1>
+	
+	</div>
+	<div id="header-right">
+		
+		
+		<a href="/liuyongqw/liuyongqw.gitub.io.git/"  title="home"><i class="fa fa-home ">home</i></a>
+		
+		<a href="/liuyongqw/liuyongqw.gitub.io.git/about"  title="about"><i class="fa fa-user ">about</i></a>
+		
+		
+	</div>
+</div>
+
+  </div>
+  </div>
+  <div id="content" class="row">
+    <div id="content-left" class="col-md-4">
+      
+
+	
+	<div class="widget-wrap">
+		<h3 class="widget-title fa fa-th">分类</h3>
+		<div class="widget">
+		<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/liuyongqw/liuyongqw.gitub.io.git/categories/%E5%AD%A6%E4%B9%A0/">学习</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/liuyongqw/liuyongqw.gitub.io.git/categories/%E5%AD%A6%E4%B9%A0/servlet/">servlet</a><span class="category-list-count">1</span></li></ul></li></ul>
+		</div>
+	</div>
+
+
+	
+	<div class="widget-wrap">
+		<h3 class="widget-title fa fa-tags">标签</h3>
+		<div class="widget tags">
+		<a class="tag-span-link" href="/liuyongqw/liuyongqw.gitub.io.git/tags/servlet/" rel="tag">servlet<span class="tag-span-count">1</span></a> <a class="tag-span-link" href="/liuyongqw/liuyongqw.gitub.io.git/tags/%E5%AD%A6%E4%B9%A0/" rel="tag">学习<span class="tag-span-count">1</span></a>
+		</div>
+	</div>
+
+
+	
+	<div class="widget-wrap">
+		<h3 class="widget-title fa fa-archive">归档</h3>
+		<div class="widget">
+			<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/liuyongqw/liuyongqw.gitub.io.git/archives/2022/">2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/liuyongqw/liuyongqw.gitub.io.git/archives/2016/">2016</a><span class="archive-list-count">1</span></li></ul>
+		</div>
+	</div>
+
+
+
+    </div>
+    <div id="content-right" class="col-md-8">
+    
+<article id="post">
+	<div class="post-title">
+  <h1>Servlet学习</h1>
+  	</div>
+  <div class="page-meta">
+  	<span class="fa-wrap">
+  		<i class="fa fa-clock-o"></i>
+  		<span class="date-meta">2016-11-16</span>
+  	</span>
+  	<span class="fa-wrap">
+  		
+  		<i class="fa fa-tags"></i>
+  		<span class="tags-meta">servlet</span>
+  		
+  	</span>
+  	<span class="fa-wrap">
+  		
+  		<i class="fa fa-th"></i>
+  		<span class="categories-meta">学习</span>
+  		
+  	</span>
+  </div>
+  <div class="post-content">
+  <h3 id="1、Servlet的继承结构"><a href="#1、Servlet的继承结构" class="headerlink" title="1、Servlet的继承结构"></a>1、Servlet的继承结构</h3>
+
+<h3 id="2、Servlet接口"><a href="#2、Servlet接口" class="headerlink" title="2、Servlet接口"></a>2、Servlet接口</h3><ul>
+<li>init()：创建servlet对象后立即调用该方法完成其他初始化工作</li>
+<li>service()：处理客户端请求，执行业务操作，利用响应对象响应客户端请求</li>
+<li>destory()：再销毁servlet对象之前调用该方法，释放资源</li>
+<li>getServletConfig()：ServletConfig 是容器向Servlet传递参数的载体</li>
+<li>getServletInfo()：获取servlet相关信息</li>
+</ul>
+<h3 id="3、ServletConfig-接口"><a href="#3、ServletConfig-接口" class="headerlink" title="3、ServletConfig 接口"></a>3、ServletConfig 接口</h3><p>​    Servlet运行期间，需要一些辅助信息，这些信息可以在web.xml文件中，使用一个或多个元素进行配置。当tomacat初始化一个servlet时，会将该servlet的配置信息，封装到ServletConfig对象中，通过调用init(ServletConfig servletConfig)方法，将ServletConfig对象传递给Servlet</p>
+<h3 id="4、GenericServlet-抽象类"><a href="#4、GenericServlet-抽象类" class="headerlink" title="4、GenericServlet 抽象类"></a>4、GenericServlet 抽象类</h3><p>​    GenericServlet是实现了Servlet接口的抽象类。在GenericServlet中进一步的定义了Servlet接口的具体实现，其设计的目的是为了和应用层协议解耦，再GenericServlet中包含了一个Service抽象方法，可以通过继承GenericServlet并实现Service方法实现请求的处理，但是需要将ServletRequest和ServletResponse 转化为HttpServletRequest和HttpServletResponse</p>
+<h3 id="5、HttpServlet"><a href="#5、HttpServlet" class="headerlink" title="5、HttpServlet"></a>5、HttpServlet</h3><p>​    继承自GenericServlet，针对于处理Http协议的请求定制，在HttpServlet的service()方法中已经把ServletRequest和ServletResponse 转化为HttpServletRequest和HttpServletResponse</p>
+<h3 id="6、Servlet的生命周期"><a href="#6、Servlet的生命周期" class="headerlink" title="6、Servlet的生命周期"></a>6、Servlet的生命周期</h3><p>​    servlet的生命周期是由容器管理的，分别经历4个阶段</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>字数</th>
+<th>时机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建</td>
+<td>1次</td>
+<td>第一次请求之后</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td>1次</td>
+<td>实例化之后</td>
+</tr>
+<tr>
+<td>执行服务</td>
+<td>多次</td>
+<td>每次请求</td>
+</tr>
+<tr>
+<td>销毁</td>
+<td>1次</td>
+<td>停止服务、</td>
+</tr>
+</tbody></table>
+<h3 id="7、注意事项"><a href="#7、注意事项" class="headerlink" title="7、注意事项"></a>7、注意事项</h3><ul>
+<li>在Servlet中一般不要轻易使用成员变量，可能会造成线程安全问题</li>
+<li>如果要使用，应尽量避免对成员变量产生修改</li>
+<li>如果要产生修改，应注意线程安全问题</li>
+</ul>
+<h3 id="8、ServletContext对象和ServletConfig对象"><a href="#8、ServletContext对象和ServletConfig对象" class="headerlink" title="8、ServletContext对象和ServletConfig对象"></a>8、ServletContext对象和ServletConfig对象</h3><p>​    ServletContext叫做Servlet上下文，服务器会为每一个web应用创建一个ServletContext对象，这个对象全局唯一，而且web应用中的所有Servlet都共享这个对象</p>
+<h4 id="8-1、ServletContext对象的作用"><a href="#8-1、ServletContext对象的作用" class="headerlink" title="8.1、ServletContext对象的作用"></a>8.1、ServletContext对象的作用</h4><ul>
+<li>相对路径转为绝对路径</li>
+<li>获取容器的附加信息</li>
+<li>读取配置</li>
+<li>全局容器</li>
+</ul>
+<h4 id="8-2、ServletContext的生命周期"><a href="#8-2、ServletContext的生命周期" class="headerlink" title="8.2、ServletContext的生命周期"></a>8.2、ServletContext的生命周期</h4><p>​    当容器启动时会创建ServletContext对象并一直缓存该对象，直到容器关闭后该对象生命周期结束，ServletContext的生命周期非常长，所以在使用全局容器时不建议存放业务数据</p>
+<h4 id="8-3、ServletConfig对象"><a href="#8-3、ServletConfig对象" class="headerlink" title="8.3、ServletConfig对象"></a>8.3、ServletConfig对象</h4><p>​    ServletConfig对象对应web.xml文件中的<Servlet>节点，当Tomcat初始化一个Servlet时，会将该Servlet的配置信息，封装到一个ServletConfig对象中，可以通过该对象读取<servlet>节点中的配置信息</p>
+<h3 id="9、请求转发"><a href="#9、请求转发" class="headerlink" title="9、请求转发"></a>9、请求转发</h3><h4 id="9-1-forward转发"><a href="#9-1-forward转发" class="headerlink" title="9.1 forward转发"></a>9.1 forward转发</h4><h5 id="9-1-1-forward转发处理流程"><a href="#9-1-1-forward转发处理流程" class="headerlink" title="9.1.1 forward转发处理流程"></a>9.1.1 forward转发处理流程</h5><ol>
+<li>清空response存放的正在响应正文数据缓冲区</li>
+<li>如果目标资源为Servlet或jsp，就调用他们的service方法，把该方法产生的响应结果发送到客户端；如果目标资源是静态文件中的HTML，就读取文件中的数据把它发送到客户端</li>
+</ol>
+<h5 id="9-1-2-forward处理特点"><a href="#9-1-2-forward处理特点" class="headerlink" title="9.1.2 forward处理特点"></a>9.1.2 forward处理特点</h5><ol>
+<li>由于forward()方法先清空用于存放相应正文的缓冲区，因此源Servlet生成的响应结果不会被发送到客户端，只有目标资源生成的响应结果才会被发送到客户端</li>
+<li>如果源Servlet在进行请求转发之前，已经提交了响应结(flushBuffer()，close()方法)，那么forward()方法会抛出异常，为避免异常，不应该在源servlet中提交响应结果</li>
+</ol>
+<h4 id="9-2-include转发"><a href="#9-2-include转发" class="headerlink" title="9.2 include转发"></a>9.2 include转发</h4><h5 id="9-2-1-include处理流程"><a href="#9-2-1-include处理流程" class="headerlink" title="9.2.1 include处理流程"></a>9.2.1 include处理流程</h5><ol>
+<li>如果目标资源为Servlet或者jsp，就调用他们的service方法，把该方法产生的响应正文添加到源Servlet的响应结果中；如果目标组建为HTML文档，就直接把文档的内容添加到源Servlet的响应结果中</li>
+<li>返回到源Servlet的服务方法中，继续执行后续代码</li>
+</ol>
+<h5 id="9-2-2-include处理特点"><a href="#9-2-2-include处理特点" class="headerlink" title="9.2.2 include处理特点"></a>9.2.2 include处理特点</h5><ol>
+<li>源Servlet与被包含的目标资源的输出数据都会被添加到响应结果中</li>
+<li>在目标资源对响应状态码或者响应开头所做的修改都会被忽略</li>
+</ol>
+<h3 id="10、Cookie对象和HttpSession对象"><a href="#10、Cookie对象和HttpSession对象" class="headerlink" title="10、Cookie对象和HttpSession对象"></a>10、Cookie对象和HttpSession对象</h3><p>​    Cookie对象和HttpSession对象的作用是维护客户端浏览器与服务端的会话状态的两个对象，二者的不同是Cookie是通过客户端浏览器实现会话的维持，而HttpSession是通过服务端来实现会话的维持</p>
+<h4 id="10-1-区别"><a href="#10-1-区别" class="headerlink" title="10.1 区别"></a>10.1 区别</h4><ul>
+<li>cookie数据存放在客户的浏览器或系统文件中，httpsession中的数据存放在服务器中</li>
+<li>cookie不安全，httpSession是安全的</li>
+<li>单个cookie保存的数据不能超过4K，httpSession无限制    </li>
+</ul>
+
+	</div>
+</article>
+
+
+
+    </div>
+  </div>
+  <div class="row">
+<div id="bottom" class="col-md-12"> 
+  <div class="bottom-nav">
+	
+	
+	<a href="https://github.com/lizehongss" class="fa fa-github fa-2x" target="_blank" title="Follow me" ></a>
+	
+	
+</div>
+<div class="bottom-info">
+	&copy; 2022 John Doe<br>
+	Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	theme <a href="https://github.com/lizehongss/hexo-theme-zhl" target="_blank">zhl</a>
+</div>
+</div>
+</div>
+</div>
+<div id="tool">
+  <ul>
+    <li class="fa fa-angle-up top" id="top"></li>
+  </ul>
+</div>
+  <div class="bg_content">
+    <canvas id="canvas"></canvas>
+  </div>
+  
+  <!-- scripts list from theme config.yml -->
+  
+    <script src="/note.github.io/js/zhl.js"></script>
+  
+    <script src="/note.github.io/js/bj.js"></script>
+  
+
+<!-- jQ cdn  -->
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<!-- bootstrap js cdn-->
+<!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+
+
+</body>
+</html>
